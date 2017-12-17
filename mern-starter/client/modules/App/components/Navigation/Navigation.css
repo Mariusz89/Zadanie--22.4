@@ -1,0 +1,38 @@
+.header {
+  background: #0085DA;
+  background-size: cover;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.nav {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.nav ul {
+  list-style: none;
+  width: 980px;
+  margin: auto;
+  text-align: right;
+}
+
+.nav li {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.nav li:hover {
+  border-bottom: 1px solid #fff;
+}
+
+
+
+
+

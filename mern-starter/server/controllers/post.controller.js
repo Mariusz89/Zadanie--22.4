@@ -78,3 +78,55 @@ export function deletePost(req, res) {
     });
   });
 }
+
+/**
+ * Edit a post
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function editPost(req, res) {
+  Post.update({ cuid: req.params.cuid }, req.body.post).exec((err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ post });
+  });
+}
+
+/**
+ * ThumbUp a post
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function thumbUpPost(req, res) {
+  Post.findOne({ cuid: req.params.cuid }).exec((err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    post.thumbUp(() => {
+      res.status(200).end();
+    });
+  });
+}
+
+/**
+ * ThumbDown a post
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function thumbDownPost(req, res) {
+  Post.findOne({ cuid: req.params.cuid }).exec((err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    post.thumbDown(() => {
+      res.status(200).end();
+    });
+  });
+}
+
